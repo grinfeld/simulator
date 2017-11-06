@@ -1,0 +1,13 @@
+server:
+  port: 8020
+
+management:
+  context_path: /management
+  security:
+    enabled: false
+
+endpoints:
+  shutdown:
+    enabled: true
+  restart:
+    enabled: true
