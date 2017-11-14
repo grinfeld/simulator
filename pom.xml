@@ -33,7 +33,10 @@
         <plugin.pitest.version>1.2.4</plugin.pitest.version>
         <ch-commons-util.version>6.0.2</ch-commons-util.version>
         <objenesis.version>2.4</objenesis.version>
+        <lettuce.version>4.4.1.Final</lettuce.version>
+        <ch-smpp.version>6.0.0-netty4-beta-3</ch-smpp.version>
         <spring-boot.data.version>1.8.8.RELEASE</spring-boot.data.version>
+        <jaxb2.plugin.version>2.3.1</jaxb2.plugin.version>
     </properties>
 
     <dependencies>
@@ -49,12 +52,12 @@
         <dependency>
             <groupId>biz.paluch.redis</groupId>
             <artifactId>lettuce</artifactId>
-            <version>4.4.1.Final</version>
+            <version>${lettuce.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fizzed</groupId>
             <artifactId>ch-smpp</artifactId>
-            <version>6.0.0-netty4-beta-3</version>
+            <version>${ch-smpp.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -83,12 +86,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-        </dependency><!--
+        </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
@@ -185,7 +188,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 </project>

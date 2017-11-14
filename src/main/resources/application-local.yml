@@ -1,0 +1,7 @@
+simulator:
+  redis:
+    host: localhost
+    sentinal:
+      enabled: false
+      master: master
+      hosts: localhost,127.0.0.1
