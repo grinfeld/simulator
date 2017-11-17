@@ -11,3 +11,11 @@ endpoints:
     enabled: true
   restart:
     enabled: true
+
+com:
+  telemessage:
+    tools:
+      simulator:
+        conf:
+          smpp: conf/${spring.profiles.active}/smpps.xml
+          http: conf/${spring.profiles.active}/https.xml

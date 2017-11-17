@@ -1,0 +1,46 @@
+<connections>
+    <connection id="1" impl="com.telemessage.simulators.http.cellcom.HttpConnectionHandler" method="get">
+        <name>Cellcom</name>
+        <automatic_dr>Delivered</automatic_dr>
+        <direct_status>0</direct_status>
+        <dr_url><![CDATA[http://localhost:8080/servlet/DeliveryReport]]></dr_url>
+        <dr_from_ip>cellcomfrom.local</dr_from_ip>
+        <in_url><![CDATA[http://localhost:8080/servlet/CellcomIncomingMessage]]></in_url>
+        <threads>30</threads>
+    </connection>
+    <connection id="6" impl="com.telemessage.simulators.http.zero19.HttpConnectionHandler" method="post">
+        <name>019</name>
+        <automatic_dr>0</automatic_dr>
+        <direct_status>0</direct_status>
+        <dr_url><![CDATA[http://localhost:8080/servlet/DeliveryReport]]></dr_url>
+        <dr_from_ip>019from.local</dr_from_ip>
+        <in_url><![CDATA[http://localhost:8080/servlet/CellcomIncomingMessage?callbackID=10008]]></in_url>
+        <threads>10</threads>
+    </connection>
+    <connection id="14" impl="com.telemessage.simulators.http.cellcom.HttpConnectionHandler" method="get">
+        <name>Cellcom for PA</name>
+        <automatic_dr>Delivered</automatic_dr>
+        <direct_status>true</direct_status>
+        <dr_from_ip>cellcompsfrom.local</dr_from_ip>
+        <dr_url><![CDATA[http://localhost:8080/servlet/DeliveryReport]]></dr_url>
+        <in_url><![CDATA[http://localhost:8080/servlet/CellcomIncomingMessage]]></in_url>
+        <threads>10</threads>
+    </connection>
+    <connection id="74" impl="com.telemessage.simulators.http.mirs.HttpConnectionHandler" method="get">
+        <name>Mirs</name>
+        <direct_status>1,0,Message Sent</direct_status>
+        <threads>10</threads>
+    </connection>
+    <connection id="1500" impl="com.telemessage.simulators.http.gcm.HttpConnectionHandler" method="post">
+        <name>Gcm</name>
+        <direct_status>success</direct_status>
+        <threads>10</threads>
+    </connection>
+    <connection id="1000" impl="com.telemessage.simulators.http.archive.retain.HttpConnectionHandler" method="get">
+        <name>Archive</name>
+        <direct_status>SUCCESS</direct_status>
+        <dr_url><![CDATA[http://localhost/servlet/DeliveryReport]]></dr_url>
+        <in_url><![CDATA[http://localhost/servlet/archiver/]]></in_url>
+        <threads>30</threads>
+    </connection>
+</connections>
