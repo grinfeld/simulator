@@ -17,6 +17,7 @@ import javax.xml.bind.Unmarshaller;
 @Configuration
 public class AppConfig {
 
+    @Configuration
     public static class ConnectionConfiguration {
         @Value("${com.telemessage.tools.simulator.conf.smpp}")
         protected String smpps;
