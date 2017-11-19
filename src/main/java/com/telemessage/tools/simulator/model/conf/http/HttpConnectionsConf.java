@@ -1,7 +1,6 @@
 package com.telemessage.tools.simulator.model.conf.http;
 
 import com.telemessage.tools.simulator.model.conf.AbstractConnectionsConf;
-import com.telemessage.tools.simulator.model.conf.smpp.SMPPConnectionConf;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -82,13 +82,4 @@ public class LettuceConfig {
             throw new RuntimeException(e);
         }
     }
-    /*
-    // RedisSentinelConfiguration can also be defined via PropertySource.
-
-    // Configuration Properties
-    // spring.redis.sentinel.master: name of the master node.
-
-    // spring.redis.sentinel.nodes: Comma delimited list of host:port pairs.
-     */
-
 }
