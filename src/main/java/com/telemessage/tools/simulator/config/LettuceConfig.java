@@ -28,7 +28,10 @@ import java.util.stream.Collectors;
 @Configuration
 public class LettuceConfig {
 
-    private static final int DEFAULT_SENTINAL_PORT = 6379;
+    private static final int DEFAULT_REDIS_PORT = 6379;
+
+    @Value("#{new Integer(${simulator.redis.port:" + DEFAULT_REDIS_PORT + "})}")
+    private int port;
 
     @Value("${simulator.redis.host}")
     private String host;
@@ -48,7 +51,7 @@ public class LettuceConfig {
     @Bean(destroyMethod = "shutdown")
     @ConditionalOnProperty(name = "simulator.redis.sentinal.enabled", havingValue = "false", matchIfMissing = true)
     RedisClient redisClient(ClientResources clientResources) {
-        return RedisClient.create(clientResources, RedisURI.create(host));
+        return RedisClient.create(clientResources, RedisURI.create(host, port));
     }
 
     @Bean(destroyMethod = "close")
@@ -71,9 +74,10 @@ public class LettuceConfig {
 
     private static RedisNode getAddress(String address) {
         try {
+            // using url for parse purpose only, so adding http protocol to avoid exception throwing
             address = address.contains("://") ? address : "http://" + address;
             URL u = new URL(address);
-            return new RedisNode(u.getHost(), u.getPort() <= 0 ? DEFAULT_SENTINAL_PORT : u.getPort());
+            return new RedisNode(u.getHost(), u.getPort() <= 0 ? DEFAULT_REDIS_PORT : u.getPort());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
